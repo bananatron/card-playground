@@ -6,7 +6,6 @@ html, body {
 body {
   /*background: black;*/
 }
-
 .card {
   position: absolute !important;
   background-color: black;
@@ -14,7 +13,6 @@ body {
   width: 80px;
   border-radius: 6px;
   z-index: 1;
-  /*transition: transform 0.2s ease-in-out;*/
 }
 .card.is-facedown .face-container {
   transform: rotateY(180deg);
@@ -30,10 +28,8 @@ body {
 .card-back { background-color: red; }
 .card-template { display: none; }
 
-
 /* entire container, keeps perspective */
 .card { perspective: 1000px; }
-
 
 /* flip speed goes here */
 .face-container {

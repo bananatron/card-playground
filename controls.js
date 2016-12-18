@@ -9,6 +9,23 @@ var config = {
 firebase.initializeApp(config);
 
 $('body').on('click', '.card', function(event){
+  // TODO
+  var $card = $(event.currentTarget);
+  var card_id = $card.attr('data-id');
+
+  var cardRef = firebase.database().ref('cards/' + card_id);
+
+  cardRef.once('value', function(card_snap){
+    console.log(card_snap.val());
+      cardRef.update({
+        facedown: !card_snap.val().facedown
+      });
+  });
+  // cardRef.update({
+  //   top: $card.css('top'),
+  //   left: $card.css('left')
+  // })
+
   $(event.currentTarget).toggleClass('is-facedown');
 });
 
@@ -21,13 +38,15 @@ $('[data-action="new-card"]').on('click', function(event){
     var cardsRef = firebase.database().ref('cards').push({
       owner:'p1',
       left: 0,
-      top: 0
+      top: 0,
+      facedown: true
     });
   } else {
     var cardsRef = firebase.database().ref('cards').push({
       owner:'p2',
       left: 0,
-      top: playerTop
+      top: playerTop,
+      facedown: true
     });
   }
 });
@@ -50,6 +69,9 @@ var createCard = function(card_id, card_data){
     }
   });
   $card.css({left: card_data.left, top: card_data.top});
+  if (card_data.facedown === true){
+    $card.addClass('is-facedown');
+  }
   $('body').append($card);
 
   $card.show();
