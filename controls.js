@@ -8,8 +8,11 @@ var config = {
 };
 firebase.initializeApp(config);
 
+window.server = "one";
+window.player = "p1";
+
+
 $('body').on('click', '.card', function(event){
-  // TODO
   var $card = $(event.currentTarget);
   var card_id = $card.attr('data-id');
 
@@ -21,10 +24,6 @@ $('body').on('click', '.card', function(event){
         facedown: !card_snap.val().facedown
       });
   });
-  // cardRef.update({
-  //   top: $card.css('top'),
-  //   left: $card.css('left')
-  // })
 
   $(event.currentTarget).toggleClass('is-facedown');
 });
@@ -34,19 +33,20 @@ $('[data-action="new-card"]').on('click', function(event){
   var playerTop = $('.' + player).css('top');
   uploadMessage(player + ' drew a card. ' + Math.floor(Math.random()*20));
 
+  // TODO pull from player deck
   if (player === 'p1'){
     var cardsRef = firebase.database().ref('cards').push({
       owner:'p1',
       left: 0,
       top: 0,
-      facedown: true
+      facedown: false
     });
   } else {
     var cardsRef = firebase.database().ref('cards').push({
       owner:'p2',
       left: 0,
       top: playerTop,
-      facedown: true
+      facedown: false
     });
   }
 });
@@ -85,7 +85,7 @@ var globalCardListener = function() {
   allCardsRef.on('value', function(new_cards) {
     $('.card').remove(); // Remove all cards
 
-    // Re-add at their locations
+    // Recreate every card @ their new location
     Object.keys(new_cards.val()).forEach(function(card_id){
       createCard(card_id, new_cards.val()[card_id]);
     })

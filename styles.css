@@ -88,6 +88,14 @@ body {
 .message-modal.is-hidden {
   opacity: 0;
 }
+.grid {
+  background:url('assets/grid.png');
+  width: 1000px;
+  height: 400px;
+  background-size: contain;
+  position: absolute;
+  top: 120px;
+}
 
 button {
   position: absolute;
