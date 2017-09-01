@@ -1,0 +1,62 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>Card Tester</title>
+
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel='stylesheet' href='styles.css'/>
+
+
+      <script defer
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+      <script defer src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+      <script defer src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+      <script defer src="helpers.js"></script>
+      <script defer src="controls.js"></script>
+      <script defer src="cards.js"></script>
+    </head>
+    <body><div id="game-body">
+
+      <section id="game-actions">
+        <button id="reset-game">Reset Game</button>
+      </section>
+
+      <section id="player-selection">
+        <button class="player-select" data-selectplayer="player_1">Player 1</button>
+        <button class="player-select" data-selectplayer="player_2">Player 2</button>
+      </section>
+
+
+
+      <section id="play-area">
+        <div class="play-area player_1"></div>
+        <button data-action='new-card' data-player='player_1'>New card</button>
+        
+
+        <div class="grid"></div>
+
+
+        <div class="play-area player_2"></div>
+        <button data-action='new-card' data-player='player_2'>New card</button>
+
+        <div class="message-modal is-hidden">Messagelol</div>
+      </section>
+
+
+      <section id="card-container"></section>
+
+      <!-- Template for new cards -->
+      <div class="card-template">
+        <div class="face-container">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+        </div>
+      </div>
+
+    </div></body>
+</html>

@@ -3,10 +3,34 @@ html, body {
   font-family: monospace;
   font-size: 16px;
 }
-body {
-  /*background: black;*/
+
+
+#game-body {
+  margin: 0 auto;
+  position: relative;
+  /* background-color: lightpink; */
+  background-color: rgba(255, 182, 193, 0.3);
+  width: 1024px;
+  height: 900px;
 }
+
+#player-selection {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+#player-selection button {
+  font-family: monospace;
+  display: block;
+  font-size: 24px;
+}
+
+
+
+
+
 .card {
+  display: none;
   position: absolute !important;
   background-color: black;
   height: 100px;
@@ -14,9 +38,11 @@ body {
   border-radius: 6px;
   z-index: 1;
 }
+
 .card.is-facedown .face-container {
   transform: rotateY(180deg);
 }
+
 .card-front,
 .card-back,
 .face-container {
@@ -25,7 +51,7 @@ body {
   border-radius: 6px;
 }
 .card-front { background-color: green; }
-.card-back { background-color: red; }
+.card-back { background-color: black; }
 .card-template { display: none; }
 
 /* entire container, keeps perspective */
@@ -52,24 +78,45 @@ body {
 	transform: rotateY(0deg);
 }
 
-/* back, initially hidden pane */
+/* Card back, initially hidden pane */
 .card-back { transform: rotateY(180deg); }
 
+#play-area {
+  display: none;
+}
 
+/* TODO rename hide-area or something better */
 .play-area {
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
-  height: 110px;
-  z-index: 1000;
+  width: 100%;
+  background-color: black;
+  height: 120px;
+  z-index: 5;
   pointer-events: none;
 }
+
+#game-actions {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+}
+#game-actions button {
+  background-color: black;
+  color: white;
+  border: 0;
+}
+#game-actions button:hover {
+  border: 0;
+  background-color: red;
+}
+
 .play-area.is-you {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
 }
-.play-area.p1 {
-}
-.play-area.p2 {
+
+.play-area.player_1 {}
+.play-area.player_2 {
   bottom: 0;
 }
 
@@ -89,24 +136,29 @@ body {
   opacity: 0;
 }
 .grid {
-  background:url('assets/grid.png');
-  width: 1000px;
-  height: 400px;
-  background-size: contain;
-  position: absolute;
-  top: 120px;
+  background:url('assets/grid-4.png');
+  width: 1024px;
+  height: 900px;
 }
 
 button {
-  position: absolute;
+  font-family: monospace;
   z-index: 1001;
   margin: 10px;
 }
-button[data-player="p1"]{
+button[data-player="player_1"]{
+  display: none;
+  position: absolute;
+  font-size: 20px;
+  z-index: 5;
   top: 0;
   left: 0;
 }
-button[data-player="p2"]{
+button[data-player="player_2"]{
+  display: none;
+  position: absolute;
+  font-size: 20px;
+  z-index: 5;
   bottom: 0;
   right: 0;
 }
