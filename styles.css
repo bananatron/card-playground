@@ -130,7 +130,7 @@ html, body {
 /* TODO rename hide-area or something better */
 .play-area {
   position: absolute;
-  width: 70%;
+  width: 80%;
   background-color: black;
   height: 140px;
   z-index: 5;
@@ -191,7 +191,7 @@ button {
 button[data-player="player_1"]{
   display: none;
   position: absolute;
-  font-size: 20px;
+  font-size: 14px;
   z-index: 5;
   top: 0;
   left: 0;
@@ -199,7 +199,7 @@ button[data-player="player_1"]{
 button[data-player="player_2"]{
   display: none;
   position: absolute;
-  font-size: 20px;
+  font-size: 14px;
   z-index: 5;
   bottom: 0;
   right: 0;
