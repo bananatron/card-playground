@@ -132,7 +132,7 @@ html, body {
   position: absolute;
   width: 80%;
   background-color: black;
-  height: 140px;
+  height: 160px;
   z-index: 5;
   pointer-events: none;
 }
