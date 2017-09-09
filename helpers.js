@@ -22,6 +22,10 @@ var drawCard = function(player) {
     var deckRef = firebase.database().ref('/decks/' + player);
     deckRef.once('value').then(function(snapshot) {
         var deck = snapshot.val();
+        if (!deck) { // if deck is empty
+            alert(player + " has no more cards in their library.")
+            return;
+        }
         var firstCardKey = Object.keys(deck)[0];
         var firstCard = deck[firstCardKey];
         firstCard.owner = player;
