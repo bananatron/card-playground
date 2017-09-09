@@ -33,11 +33,52 @@ html, body {
   display: none;
   position: absolute !important;
   background-color: black;
-  height: 100px;
-  width: 80px;
-  border-radius: 6px;
+  cursor: move;
+  height: 120px;
+  width: 100px;
+  border-radius: 3px;
+  z-index: 1;
+  font-size: 12px;
+  color: black;
+}
+
+.card-name {
+  display: block;
+  font-weight: bold;
+}
+.card-cost {
+  position: absolute;
+  top: 0; right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
   z-index: 1;
 }
+.card-description {
+  font-size: 10px;
+}
+.card-mojo {
+  position: absolute;
+  bottom: 0; right: 0;
+  background-color: green;
+  color: white;
+}
+
+.card-direction {
+  color: white;
+  background-color: black;
+  font-size: 10px;
+  word-wrap: break-word;
+}
+
+.card-front.is-augmentation {
+  background-color: #fcffeb;
+}
+.card-front.is-ooze {
+  background-color: #eafcf6;
+}
+
+
+
 
 .card.is-facedown .face-container {
   transform: rotateY(180deg);
@@ -48,10 +89,11 @@ html, body {
 .face-container {
   width: 100%;
   height: 100%;
-  border-radius: 6px;
+  border-radius: 3px;
+  padding: 2px;
 }
-.card-front { background-color: green; }
-.card-back { background-color: black; }
+.card-front { background-color: white; }
+.card-back { background-color: #332917; }
 .card-template { display: none; }
 
 /* entire container, keeps perspective */
@@ -88,9 +130,9 @@ html, body {
 /* TODO rename hide-area or something better */
 .play-area {
   position: absolute;
-  width: 100%;
+  width: 70%;
   background-color: black;
-  height: 120px;
+  height: 140px;
   z-index: 5;
   pointer-events: none;
 }
@@ -112,7 +154,7 @@ html, body {
 }
 
 .play-area.is-you {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .play-area.player_1 {}

@@ -8,6 +8,15 @@ var config = {
 };
 firebase.initializeApp(config);
 
+
+// Pull in deck JSON
+$.getJSON('card_data.json', function(data) {
+  console.log('Loaded card JSON.')
+  window.cardData = data;
+  window.player_1_deck = data;
+  window.player_2_deck = data;
+});
+
 window.player = null;
 
 // Player selection
@@ -41,7 +50,6 @@ var startGame = function() {
     var cardRef = firebase.database().ref('cards/' + card_id);
 
     cardRef.once('value', function(card_snap){
-      console.log(card_snap.val());
         cardRef.update({
           facedown: !card_snap.val().facedown
         });
@@ -52,27 +60,10 @@ var startGame = function() {
 
   // Draw new card
   $('[data-action="new-card"]').on('click', function(event) {
-    console.log("new card drawn")
+    console.log("New card drawn")
     var player = $(event.currentTarget).attr('data-player');
     var playerTop = $('.' + player).css('top');
-    uploadMessage(player + ' drew a card. ' + Math.floor(Math.random()*20));
-
-    // TODO pull from player deck
-    if (player === 'player_1'){
-      var cardsRef = firebase.database().ref('cards').push({
-        owner:'player_1',
-        left: 0,
-        top: 0,
-        facedown: false
-      });
-    } else {
-      var cardsRef = firebase.database().ref('cards').push({
-        owner:'player_2',
-        left: 0,
-        top: playerTop,
-        facedown: false
-      });
-    }
+    drawCard(player);
   });
 
 
@@ -83,6 +74,7 @@ var startGame = function() {
     $card.removeClass('card-template');
     $card.attr('data-id', card_id);
     $card.attr('data-owner', card_data.owner);
+
     $card.draggable({
       stop: function(e){
         var cardRef = firebase.database().ref('cards/' + card_id);
@@ -98,6 +90,20 @@ var startGame = function() {
     }
     $("#card-container").append($card);
 
+    // Give card properties
+    $card.find('.card-name').text(card_data["Card Name"])
+    $card.find('.card-description').text(card_data["Description"])
+    $card.find('.card-mojo').text(card_data["Mojo"])
+    $card.find('.card-direction').text(card_data["Direction"])
+    $card.find('.card-cost').text(card_data["Cost"])
+    $card.find('.card-type').text(card_data["Type"])
+    if (card_data["Type"] == "Ooze") {
+      $card.find('.card-front').addClass('is-ooze')
+    }
+    if (card_data["Type"] == "Augmentation") {
+      $card.find('.card-front').addClass('is-augmentation')
+    }
+
     if (window.player)
       $card.show();
   };
@@ -111,7 +117,8 @@ var startGame = function() {
       $('.card').remove(); // Remove all cards
 
       // Recreate every card @ their new location
-      if (!new_cards) return; // (Don't bother if no cards are present)
+      
+      if (!new_cards.val()) return; // (Don't bother if no cards are present)
       Object.keys(new_cards.val()).forEach(function(card_id){
         createCard(card_id, new_cards.val()[card_id]);
       })
