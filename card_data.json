@@ -3,7 +3,7 @@
    "Card Name": "Basic Ooze",
    "Type": "Ooze",
    "Description": "",
-   "Mojo": "2",
+   "Mojo": "1",
    "Cost": null,
    "Direction": "",
    "Complexity": 1
@@ -12,7 +12,7 @@
    "Card Name": "Basic Ooze",
    "Type": "Ooze",
    "Description": "",
-   "Mojo": "2",
+   "Mojo": "1",
    "Cost": null,
    "Direction": "",
    "Complexity": 1
@@ -21,7 +21,7 @@
    "Card Name": "Basic Ooze",
    "Type": "Ooze",
    "Description": "",
-   "Mojo": "2",
+   "Mojo": "1",
    "Cost": null,
    "Direction": "",
    "Complexity": 1
@@ -30,7 +30,34 @@
    "Card Name": "Basic Ooze",
    "Type": "Ooze",
    "Description": "",
-   "Mojo": "2",
+   "Mojo": "1",
+   "Cost": null,
+   "Direction": "",
+   "Complexity": 1
+ },
+ {
+   "Card Name": "Basic Ooze",
+   "Type": "Ooze",
+   "Description": "",
+   "Mojo": "1",
+   "Cost": null,
+   "Direction": "",
+   "Complexity": 1
+ },
+ {
+   "Card Name": "Basic Ooze",
+   "Type": "Ooze",
+   "Description": "",
+   "Mojo": "1",
+   "Cost": null,
+   "Direction": "",
+   "Complexity": 1
+ },
+ {
+   "Card Name": "Basic Ooze",
+   "Type": "Ooze",
+   "Description": "",
+   "Mojo": "1",
    "Cost": null,
    "Direction": "",
    "Complexity": 1
@@ -38,11 +65,20 @@
  {
    "Card Name": "Hypnotic Ooze",
    "Type": "Ooze",
-   "Description": "Adjacent oozes do not sprout.",
-   "Mojo": "4",
+   "Description": "Sprout: Replant two oozes who share a field with this ooze.<br>Adjacent oozes do not sprout.",
+   "Mojo": "3",
    "Cost": null,
    "Direction": "",
-   "Complexity": 2
+   "Complexity": 3
+ },
+ {
+   "Card Name": "Hypnotic Ooze",
+   "Type": "Ooze",
+   "Description": "Sprout: Replant two oozes who share a field with this ooze.<br>Adjacent oozes do not sprout.",
+   "Mojo": "3",
+   "Cost": null,
+   "Direction": "",
+   "Complexity": 3
  },
  {
    "Card Name": "Party Ooze",
@@ -56,7 +92,7 @@
  {
    "Card Name": "Fickle Ooze",
    "Type": "Ooze",
-   "Description": "Adjacent ooze produces 1 less mojo.",
+   "Description": "Adjacent ooze produces 0 mojo.",
    "Mojo": "2",
    "Cost": null,
    "Direction": "LEFT",
@@ -65,10 +101,28 @@
  {
    "Card Name": "Fickle Ooze",
    "Type": "Ooze",
-   "Description": "Adjacent ooze produces 1 less mojo.",
+   "Description": "Adjacent ooze produces 0 mojo.",
    "Mojo": "2",
    "Cost": null,
    "Direction": "RIGHT",
+   "Complexity": 1
+ },
+ {
+   "Card Name": "Fickle Ooze",
+   "Type": "Ooze",
+   "Description": "Adjacent ooze produces 0 mojo.",
+   "Mojo": "2",
+   "Cost": null,
+   "Direction": "UP",
+   "Complexity": 1
+ },
+ {
+   "Card Name": "Fickle Ooze",
+   "Type": "Ooze",
+   "Description": "Adjacent ooze produces 0 mojo.",
+   "Mojo": "2",
+   "Cost": null,
+   "Direction": "DOWN",
    "Complexity": 1
  },
  {
@@ -86,7 +140,7 @@
    "Description": "Adjacent oozes produce 1 additional mojo.",
    "Mojo": "-1",
    "Cost": null,
-   "Direction": "UP,DOWN",
+   "Direction": "",
    "Complexity": 1
  },
  {
@@ -95,13 +149,22 @@
    "Description": "Adjacent oozes produce 1 additional mojo.",
    "Mojo": "-1",
    "Cost": null,
-   "Direction": "LEFT,RIGHT",
+   "Direction": "",
+   "Complexity": 1
+ },
+ {
+   "Card Name": "Friendly Ooze",
+   "Type": "Ooze",
+   "Description": "Adjacent oozes produce 1 additional mojo.",
+   "Mojo": "-1",
+   "Cost": null,
+   "Direction": "",
    "Complexity": 1
  },
  {
    "Card Name": "Stubborn Ooze",
    "Type": "Ooze",
-   "Description": "Cannot be destroyed.",
+   "Description": "Sprout: Pay 1 mojo or destroy this ooze. Cannot be destroyed.",
    "Mojo": "1",
    "Cost": null,
    "Direction": "",
@@ -110,7 +173,7 @@
  {
    "Card Name": "Hermit Ooze",
    "Type": "Ooze",
-   "Description": "Cannot be replanted.",
+   "Description": "Cannot be replanted. This ooze must be replanted if it sprouts while adjacent to another ooze.",
    "Mojo": "1",
    "Cost": null,
    "Direction": "",
@@ -119,16 +182,7 @@
  {
    "Card Name": "Baby Ooze",
    "Type": "Ooze",
-   "Description": "Double any bonuses from surrounding oozes.",
-   "Mojo": "0",
-   "Cost": null,
-   "Direction": "",
-   "Complexity": 2
- },
- {
-   "Card Name": "Baby Ooze",
-   "Type": "Ooze",
-   "Description": "Double any bonuses from surrounding oozes.",
+   "Description": "Any bonuses this ooze would receive are doubled.",
    "Mojo": "0",
    "Cost": null,
    "Direction": "",
@@ -137,7 +191,7 @@
  {
    "Card Name": "Elusive Ooze",
    "Type": "Ooze",
-   "Description": "If this ooze would be destroyed, replant it to a new location instead.",
+   "Description": "Sprout: Replant an adjacent ooze. If this ooze would be destroyed, replant it to a new location instead. ",
    "Mojo": "1",
    "Cost": null,
    "Direction": "",
@@ -146,7 +200,7 @@
  {
    "Card Name": "Spiteful Ooze",
    "Type": "Ooze",
-   "Description": "If this ooze is destroyed before it's sprouted, destroy any one ooze on any field.",
+   "Description": "Sprout: Pay 1 mojo or destroy this ooze. If this ooze is destroyed before it's sprouted, destroy any one ooze on any field.",
    "Mojo": "1",
    "Cost": null,
    "Direction": "",
@@ -155,7 +209,16 @@
  {
    "Card Name": "Ostentatious Ooze",
    "Type": "Ooze",
-   "Description": "Ooze output is doubled if there are more than 5 oozes who share the field",
+   "Description": "Ooze output increase by 3 if there are more than 5 oozes who share a field with it.",
+   "Mojo": "0",
+   "Cost": null,
+   "Direction": "",
+   "Complexity": 2
+ },
+ {
+   "Card Name": "Chaotic Ooze",
+   "Type": "Ooze",
+   "Description": "Sprout: Replant every adjacent ooze.",
    "Mojo": "2",
    "Cost": null,
    "Direction": "",
@@ -165,9 +228,9 @@
    "Card Name": "Chaotic Ooze",
    "Type": "Ooze",
    "Description": "Sprout: Replant every adjacent ooze.",
-   "Mojo": "3",
+   "Mojo": "2",
    "Cost": null,
-   "Direction": "LEFT,RIGHT,UP,DOWN",
+   "Direction": "",
    "Complexity": 2
  },
  {
@@ -176,7 +239,16 @@
    "Description": "This ooze's mojo output is equal to the # of adjacent oozes.",
    "Mojo": "X",
    "Cost": null,
-   "Direction": "LEFT,RIGHT,UP,DOWN",
+   "Direction": "",
+   "Complexity": 2
+ },
+ {
+   "Card Name": "Moocher Ooze",
+   "Type": "Ooze",
+   "Description": "This ooze's mojo output is equal to the # of adjacent oozes.",
+   "Mojo": "X",
+   "Cost": null,
+   "Direction": "",
    "Complexity": 2
  },
  {
@@ -186,16 +258,7 @@
    "Mojo": "2",
    "Cost": null,
    "Direction": "",
-   "Complexity": null
- },
- {
-   "Card Name": "Jealous Ooze",
-   "Type": "Ooze",
-   "Description": "Sprout: Destroy any one ooze sharing the field with this ooze.",
-   "Mojo": "2",
-   "Cost": null,
-   "Direction": "",
-   "Complexity": null
+   "Complexity": 1
  },
  {
    "Card Name": "Lonely Ooze",
@@ -203,14 +266,14 @@
    "Description": "This ooze's mojo ouput becomes 0 unless it is adjacent to another ooze.",
    "Mojo": "2",
    "Cost": null,
-   "Direction": "LEFT,RIGHT,UP,DOWN",
+   "Direction": "",
    "Complexity": 2
  },
  {
    "Card Name": "Greedy Ooze",
    "Type": "Ooze",
-   "Description": "Sprout: Pay 4 mojo to destroy this ooze.",
-   "Mojo": "-2",
+   "Description": "Sprout: Pay 2 mojo to destroy this ooze.",
+   "Mojo": "-1",
    "Cost": null,
    "Direction": "",
    "Complexity": 2
@@ -219,7 +282,7 @@
    "Card Name": "Curious Ooze",
    "Type": "Ooze",
    "Description": "Draw an extra card each turn.",
-   "Mojo": "0",
+   "Mojo": "-2",
    "Cost": null,
    "Direction": "",
    "Complexity": 2
@@ -228,15 +291,42 @@
    "Card Name": "Diplomatic Ooze",
    "Type": "Ooze",
    "Description": "Drawing cards only cost one mojo.",
-   "Mojo": "0",
+   "Mojo": "-1",
    "Cost": null,
    "Direction": "",
-   "Complexity": null
+   "Complexity": 1
+ },
+ {
+   "Card Name": "Annoying Ooze",
+   "Type": "Ooze",
+   "Description": "Sprout: Replant an adjacent ooze to another location.",
+   "Mojo": "1",
+   "Cost": null,
+   "Direction": "",
+   "Complexity": 2
+ },
+ {
+   "Card Name": "Uplifting Ooze",
+   "Type": "Ooze",
+   "Description": "If adjacent ooze is receiveing a bonus, double it.",
+   "Mojo": "0",
+   "Cost": null,
+   "Direction": "LEFT",
+   "Complexity": 2
+ },
+ {
+   "Card Name": "Uplifting Ooze",
+   "Type": "Ooze",
+   "Description": "If adjacent ooze is receiveing a bonus, double it.",
+   "Mojo": "0",
+   "Cost": null,
+   "Direction": "RIGHT",
+   "Complexity": 2
  },
  {
    "Card Name": "Bag of Bones",
    "Type": "Augmentation",
-   "Description": "Cannot be replanted.",
+   "Description": "Ooze cannot be replanted.",
    "Mojo": "",
    "Cost": 2,
    "Direction": "",
@@ -247,36 +337,18 @@
    "Type": "Augmentation",
    "Description": "Mojo output increased by 2.",
    "Mojo": "",
-   "Cost": 4,
+   "Cost": 3,
    "Direction": "",
    "Complexity": 1
  },
  {
    "Card Name": "Helmet",
    "Type": "Augmentation",
-   "Description": "Cannot be destroyed.",
+   "Description": "Ooze cannot be destroyed.",
    "Mojo": "",
    "Cost": 2,
    "Direction": "",
    "Complexity": 1
- },
- {
-   "Card Name": "Helmet",
-   "Type": "Augmentation",
-   "Description": "Cannot be destroyed.",
-   "Mojo": "",
-   "Cost": 2,
-   "Direction": "",
-   "Complexity": 1
- },
- {
-   "Card Name": "Fertilizer",
-   "Type": "Augmentation",
-   "Description": "Mojo output doubled.",
-   "Mojo": "",
-   "Cost": 4,
-   "Direction": "",
-   "Complexity": 2
  },
  {
    "Card Name": "Fertilizer",
@@ -290,7 +362,7 @@
  {
    "Card Name": "Tether",
    "Type": "Augmentation",
-   "Description": "Choose an adjacent ooze. This ooze's mojo output is equal to any adjacent ooze's.",
+   "Description": "Ooze's mojo output is equal to any adjacent ooze.",
    "Mojo": "",
    "Cost": 3,
    "Direction": "",
@@ -299,16 +371,7 @@
  {
    "Card Name": "Infect",
    "Type": "Augmentation",
-   "Description": "Mojo output becomes 0.",
-   "Mojo": "",
-   "Cost": 3,
-   "Direction": "",
-   "Complexity": 1
- },
- {
-   "Card Name": "Infect",
-   "Type": "Augmentation",
-   "Description": "Mojo output becomes 0.",
+   "Description": "Ooze's mojo output becomes 0.",
    "Mojo": "",
    "Cost": 3,
    "Direction": "",
@@ -324,7 +387,7 @@
    "Complexity": 2
  },
  {
-   "Card Name": "Bravery",
+   "Card Name": "Second Wind",
    "Type": "Special",
    "Description": "Gain mojo equal to the ooze count on opponent's field.",
    "Mojo": "",
@@ -333,25 +396,7 @@
    "Complexity": null
  },
  {
-   "Card Name": "Frighten",
-   "Type": "Special",
-   "Description": "Replant any ooze.",
-   "Mojo": "",
-   "Cost": 1,
-   "Direction": "",
-   "Complexity": 1
- },
- {
-   "Card Name": "Frighten",
-   "Type": "Special",
-   "Description": "Replant any ooze.",
-   "Mojo": "",
-   "Cost": 1,
-   "Direction": "",
-   "Complexity": 1
- },
- {
-   "Card Name": "Frighten",
+   "Card Name": "Bury",
    "Type": "Special",
    "Description": "Replant any ooze.",
    "Mojo": "",
@@ -376,24 +421,6 @@
    "Cost": 2,
    "Direction": "",
    "Complexity": 1
- },
- {
-   "Card Name": "Ether Swap",
-   "Type": "Special",
-   "Description": "Swap the location of any two oozes who share the same field.",
-   "Mojo": "",
-   "Cost": 4,
-   "Direction": "",
-   "Complexity": 1
- },
- {
-   "Card Name": "Cast Shadow",
-   "Type": "Special",
-   "Description": "Choose one ooze. That ooze does not sprout on it's next sprout phase.",
-   "Mojo": "",
-   "Cost": 1,
-   "Direction": "",
-   "Complexity": 2
  },
  {
    "Card Name": "Ether Swap",
