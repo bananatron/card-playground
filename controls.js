@@ -10,10 +10,13 @@ firebase.initializeApp(config);
 
 
 // Pull in deck JSON
-$.getJSON('card_data.json', function(data) {
-  console.log('Loaded card JSON.')
-  window.cardData = data;
+$.getJSON('decks/full_tilt.json', function(data) {
+  console.log('Player 1 loaded full_tilt deck')
   window.player_1_deck = data;
+});
+
+$.getJSON('decks/magic_style.json', function(data) {
+  console.log('Player 1 loaded magic_style deck')
   window.player_2_deck = data;
 });
 
@@ -92,7 +95,7 @@ var startGame = function() {
 
     // Give card properties
     $card.find('.card-name').text(card_data["Card Name"])
-    $card.find('.card-description').text(card_data["Description"])
+    $card.find('.card-description').html(card_data["Description"])
     $card.find('.card-mojo').text(card_data["Mojo"])
     $card.find('.card-direction').text(card_data["Direction"])
     $card.find('.card-cost').text(card_data["Cost"])
