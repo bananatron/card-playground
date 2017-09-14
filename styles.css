@@ -4,6 +4,30 @@ html, body {
   font-size: 16px;
 }
 
+#deck-selection {
+  top: 10px; right: 0;
+  z-index: 99;
+  display: none;
+  background-color: brown;
+  color: white;
+  position: fixed;
+  padding: 2px;
+}
+#deck-selection .title {
+  cursor: pointer;
+}
+#deck-selection ul {
+  margin: 0;
+  padding: 1rem;
+}
+#deck-selection li {
+  padding: 10px;
+  list-style: none;
+}
+#deck-selection li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
 
 #game-body {
   margin: 0 auto;

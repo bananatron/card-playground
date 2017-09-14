@@ -9,7 +9,6 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel='stylesheet' href='styles.css'/>
 
-
       <script defer
         src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
@@ -21,6 +20,16 @@
       <script defer src="cards.js"></script>
     </head>
     <body><div id="game-body">
+
+      <section id="deck-selection">
+        <span class="title">🗂</span>
+        <ul>
+          <li data-deckname="default">Default</li>
+          <li data-deckname="full_tilt">Full Tilt</li>
+          <li data-deckname="full_tilt_counter">Full Tilt Counter</li>
+          <li data-deckname="magic_style">Magic Style</li>
+        </ul>
+      </section>
 
       <section id="game-actions">
         <button id="reset-game">Reset Game</button>

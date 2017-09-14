@@ -10,7 +10,6 @@ var cards = {
 
 }
 
-
 var deck = [
   'green_ooze',
   'red_ooze',
