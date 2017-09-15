@@ -8,7 +8,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-console.log('Version 1.1 lol')
+console.log('Version 1.2 lol')
 
 $("#deck-selection .title").on("click", function() {
   $("#deck-selection ul").toggle();
@@ -33,21 +33,22 @@ $.getJSON('decks/default.json', function(data) {
   console.log('Player 2 loaded default deck')
   // window.player_1_deck = data;
   // window.player_2_deck = data;
+  window.player_1_deck = data;
 });
 $.getJSON('decks/full_tilt_counter.json', function(data) {
   window.decks['full_tilt_counter'] = data
-  window.player_2_deck = data;
+  
 });
 
 $.getJSON('decks/full_tilt.json', function(data) {
   console.log('Player 1 loaded full_tilt deck')
   window.decks['full_tilt'] = data;
-  window.player_1_deck = data;
 });
 
 $.getJSON('decks/magic_style.json', function(data) {
   console.log('Player 1 loaded magic_style deck')
   window.decks['magic_style'] = data;
+  window.player_2_deck = data;
 });
 
 window.player = null;
