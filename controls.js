@@ -8,7 +8,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-console.log('Version 1 lol')
+console.log('Version 1.1 lol')
 
 $("#deck-selection .title").on("click", function() {
   $("#deck-selection ul").toggle();
@@ -31,8 +31,8 @@ $.getJSON('decks/default.json', function(data) {
   window.decks['default'] = data;
   console.log('Player 1 loaded default deck')
   console.log('Player 2 loaded default deck')
-  window.player_1_deck = data;
-  window.player_2_deck = data;
+  // window.player_1_deck = data;
+  // window.player_2_deck = data;
 });
 $.getJSON('decks/full_tilt_counter.json', function(data) {
   window.decks['full_tilt_counter'] = data
