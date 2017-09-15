@@ -5,7 +5,7 @@ html, body {
 }
 
 #deck-selection {
-  top: 10px; right: 0;
+  top: 40px; right: 0;
   z-index: 99;
   display: none;
   background-color: brown;
