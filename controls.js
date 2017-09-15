@@ -17,6 +17,7 @@ $("#deck-selection li").on("click", function(event) {
   var playername = window.player // player_1
   var deckname = $(event.currentTarget).data('deckname')
   window[playername + "_deck"] = window.decks[deckname]
+  alert('Selected new deck: ' + deckname);
   console.log('Selected new deck: ', deckname);
 })
 
