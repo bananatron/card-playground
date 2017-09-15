@@ -8,6 +8,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
+console.log('Version 1 lol')
+
 $("#deck-selection .title").on("click", function() {
   $("#deck-selection ul").toggle();
 })
