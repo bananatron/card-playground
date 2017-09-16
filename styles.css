@@ -8,24 +8,26 @@ html, body {
   top: 40px; right: 0;
   z-index: 99;
   display: none;
-  background-color: brown;
+  background-color: rgba(55, 65, 217, 0.85);
   color: white;
   position: fixed;
-  padding: 2px;
+  padding: 5px 10px;
+  margin: 10px;
 }
 #deck-selection .title {
   cursor: pointer;
+  text-align: right;
 }
 #deck-selection ul {
   margin: 0;
   padding: 1rem;
-}
-#deck-selection li {
-  padding: 10px;
   list-style: none;
 }
-#deck-selection li:hover {
+#deck-selection li {
   cursor: pointer;
+  padding: 10px 0;
+}
+#deck-selection li:hover {
   text-decoration: underline;
 }
 
