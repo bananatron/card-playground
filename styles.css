@@ -1,18 +1,33 @@
 html, body {
+  box-sizing: border-box;
   margin: 0;
-  font-family: monospace;
   font-size: 16px;
+  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+* { box-sizing: border-box; }
+
+button {
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+button:hover {
+  box-shadow: 0px 5px 12px -2px rgba(0, 0, 0, 0.2);
 }
 
 #deck-selection {
-  top: 40px; right: 0;
+  bottom:0; right: 0;
+  max-width: 250px;
   z-index: 99;
   display: none;
-  background-color: rgba(55, 65, 217, 0.85);
+  background-color: #716571;
   color: white;
   position: fixed;
-  padding: 5px 10px;
-  margin: 10px;
+  padding: 15px;
+  margin-right: 10px;
+  border-radius: 4px 4px 0 0;
 }
 #deck-selection .title {
   cursor: pointer;
@@ -20,13 +35,21 @@ html, body {
 }
 #deck-selection ul {
   margin: 0;
-  padding: 1rem;
+  padding: 0;
+  margin-top: 10px;
   list-style: none;
 }
 #deck-selection li {
   cursor: pointer;
-  padding: 10px 0;
+  padding: 10px 5px;
+  font-size: 14px;
+  margin-bottom: 5px;
 }
+
+#deck-selection li.is-selected {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 #deck-selection li:hover {
   text-decoration: underline;
 }
@@ -34,10 +57,14 @@ html, body {
 #game-body {
   margin: 0 auto;
   position: relative;
-  /* background-color: lightpink; */
-  background-color: rgba(255, 182, 193, 0.3);
+  background-color: lightgray;
+  background-color: #F6F6D9;
   width: 1024px;
   height: 900px;
+}
+
+.player-select {
+  background-color: pink;
 }
 
 #player-selection {
@@ -46,7 +73,6 @@ html, body {
   transform: translateX(-50%) translateY(-50%);
 }
 #player-selection button {
-  font-family: monospace;
   display: block;
   font-size: 24px;
 }
@@ -71,6 +97,7 @@ html, body {
 .card-name {
   display: block;
   font-weight: bold;
+  margin-bottom: 4px;
 }
 .card-cost {
   position: absolute;
@@ -164,12 +191,14 @@ html, body {
 }
 
 #game-actions {
+  display: none;
   position: fixed;
   top: 0;
   right: 0;
   z-index: 100;
 }
 #game-actions button {
+  display: block;
   background-color: black;
   color: white;
   border: 0;
@@ -210,23 +239,24 @@ html, body {
 }
 
 button {
-  font-family: monospace;
   z-index: 1001;
   margin: 10px;
 }
 button[data-player="player_1"]{
   display: none;
-  position: absolute;
-  font-size: 14px;
+  position: fixed;
+  font-size: 16px;
   z-index: 5;
   top: 0;
   left: 0;
+  background-color: lightcyan;
 }
 button[data-player="player_2"]{
   display: none;
   position: absolute;
-  font-size: 14px;
+  font-size: 16px;
   z-index: 5;
   bottom: 0;
   right: 0;
+  background-color: lightcyan;
 }

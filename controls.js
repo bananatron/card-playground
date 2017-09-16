@@ -12,6 +12,7 @@ window.airtable_key = 'keyhdUvEUU5IL7Aqs';
 window.card_list = {}
 window.decks = {}
 window.player = null;
+window.dungeon_deck = [];
 
 console.log('Version 1.3 🔥')
 
@@ -37,7 +38,7 @@ $(".player-select").on("click", function(event) {
   $("#play-area").show();
   $("#player-selection").hide();
   $(".card").show();
-  // $("#deck-selection").show();
+  $("#game-actions").show();
   startGame(); // Start the rest of the listeners
   
 });
@@ -104,8 +105,14 @@ var startGame = function() {
     if (card_data["Type"] == "Ooze") {
       $card.find('.card-front').addClass('is-ooze')
     }
-    if (card_data["Type"] == "Augmentation") {
+    if (card_data['Type'] == "Augmentation") {
       $card.find('.card-front').addClass('is-augmentation')
+    }
+
+    if (card_data['Type'] == "Dungeon Order") {
+      $card.find('.card-front').addClass('is-dungeon')
+      $card.find('.card-name').text(card_data["Name"])
+      $card.find('.card-description').html(card_data["Order Requirements"] + "<br>" + card_data["Completion"])
     }
 
     if (window.player)
@@ -140,14 +147,17 @@ var startGame = function() {
   messageListener();
 
 
-
   // Global game actions (like reset)
   $("#reset-game").on("click", function() {
     var confirm = window.confirm("Are you sure you want to reset?");
     if (confirm) {
       resetGame();
     }
-  })
+  });
+
+  $("#dungeon_card").on("click", function() {
+    drawDungeonCard();
+  });
 
   console.log('Controls loaded...');
 }

@@ -44,13 +44,30 @@ var drawCard = function(player) {
     });
 }
 
+var drawDungeonCard = function() {
+    var allCardsRef = firebase.database().ref('/cards');
+    var deckRef = firebase.database().ref('/decks/dungeon');
+
+    deckRef.once('value').then(function(snap) {
+        var dungeon_cards = snap.val();
+        var card_id = Object.keys(dungeon_cards)[0];
+        var drawnCard = dungeon_cards[card_id]
+        drawnCard.left = window.innerWidth/2;
+        drawnCard.top = window.innerHeight/2;
+
+        allCardsRef.push(drawnCard); // Add to hand
+        deckRef.child(card_id).remove(); // Remove from deck
+        uploadMessage(window.player + ' drew a dungeon order. ');
+    });
+}
+
 var resetGame = function() {
     uploadMessage(window.player + " reset game!");
     firebase.database().ref('/cards').remove();
     firebase.database().ref('/decks').remove();
     buildDeck('player_1');
     buildDeck('player_2');
-    //buildDungeonDeck();
+    buildDungeonDeck();
 }
 
 var getCardListFromAirtable = function() {
@@ -70,14 +87,16 @@ var getCardListFromAirtable = function() {
         }, 1000)
 
     }).fail(function(data){
+        alert('‼️ Failure connecting to airtable for cardlist')
         console.log('‼️ Failure connecting to airtable for cardlist', data)
     });
 }
 
-window.getDeckListsFromAirtable = function() {
-    // Get deck lists which are just a list of IDs
+var getDeckListsFromAirtable = function() {
 
     var deckListDom = $("#deck-selection").find("ul")
+
+    // Get master cardlist
     $.ajax({
         url: "https://api.airtable.com/v0/appzXeslgG8oxXqRL/Decks",
         headers: {"Authorization": "Bearer keyhdUvEUU5IL7Aqs"}
@@ -111,19 +130,41 @@ window.getDeckListsFromAirtable = function() {
 
             // Set handlers
             $("#deck-selection li").on("click", function(event) {
-                if  (!window.player) return
+                if  (!window.player) {
+                    alert("Must select a player first")
+                    return
+                }
                 var playername = window.player // player_1
                 var playerRef = firebase.database().ref('/players/' + playername);
                 var deckname = $(event.currentTarget).data('deckname');
                 playerRef.set({deck: deckname}).then(function() {
                     alert("Deck selected: " + deckname)
+                    $("#deck-selection li").removeClass("is-selected");
+                    $("[data-deckname='" + deckname + "']").addClass('is-selected');
                 })
             })
             $("#deck-selection").show()
         }, 1000)
         
     }).fail(function(data){
+        alert('‼️ Failure connecting to airtable for decklist')
         console.log('‼️ Failure connecting to airtable for decklist', data)
+    });
+
+    // Get dungeon cards
+    $.ajax({
+        url: "https://api.airtable.com/v0/appzXeslgG8oxXqRL/Dungeon%20Orders",
+        headers: {"Authorization": "Bearer keyhdUvEUU5IL7Aqs"}
+    }).done(function(data) {
+        console.log('Got airtable dungeon order cards - storing locally...')
+        window.dungeon_deck = [];
+
+        data.records.forEach(function(card_data) {
+            window.dungeon_deck.push(card_data.fields)
+        });
+    }).fail(function(data){
+        alert("‼️ Failure connecting to airtable for dungeon cards")
+        console.log('‼️ Failure connecting to airtable for dungeon cards', data)
     });
 }
 

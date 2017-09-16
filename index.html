@@ -7,6 +7,8 @@
 
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css'/>
       <link rel='stylesheet' href='styles.css'/>
 
       <script defer
@@ -22,17 +24,13 @@
     <body><div id="game-body">
 
       <section id="deck-selection">
-        <div class="title">🗂</div>
-        <ul>
-          <!-- <li data-deckname="default">Default</li>
-          <li data-deckname="full_tilt">Full Tilt</li>
-          <li data-deckname="full_tilt_counter">Full Tilt Counter</li>
-          <li data-deckname="magic_style">Magic Style</li> -->
-        </ul>
+        <div class="title">Decks 🔻</div>
+        <ul></ul>
       </section>
 
       <section id="game-actions">
         <button id="reset-game">Reset Game</button>
+        <button id="dungeon_card">New Dungeon Order</button>
       </section>
 
       <section id="player-selection">
@@ -56,14 +54,14 @@
         <div class="message-modal is-hidden">Messagelol</div>
       </section>
 
-
       <section id="card-container"></section>
+
 
       <!-- Template for new cards -->
       <div class="card-template">
         <div class="face-container">
           <div class="card-front">
-            <span class="card-name">Ooze Name</span>
+            <span class="card-name">Card Name</span>
             <span class="card-description"></span>
             <span class="card-mojo"></span>
             <span class="card-cost"></span>
