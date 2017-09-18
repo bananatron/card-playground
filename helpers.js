@@ -62,12 +62,19 @@ var drawDungeonCard = function() {
 }
 
 var resetGame = function() {
-    uploadMessage(window.player + " reset game!");
-    firebase.database().ref('/cards').remove();
-    firebase.database().ref('/decks').remove();
-    buildDeck('player_1');
-    buildDeck('player_2');
-    buildDungeonDeck();
+    getCardListFromAirtable();
+    $("#game-actions button").attr('disabled', true);
+
+    setTimeout(function() {
+        uploadMessage(window.player + " reset game!");
+        firebase.database().ref('/cards').remove();
+        firebase.database().ref('/decks').remove();
+        buildDeck('player_1');
+        buildDeck('player_2');
+        buildDungeonDeck();
+        $("#game-actions button").attr('disabled', false)
+    }, 3000)
+
 }
 
 var getCardListFromAirtable = function() {
@@ -84,7 +91,7 @@ var getCardListFromAirtable = function() {
         });
         setTimeout(function() {
             getDeckListsFromAirtable()
-        }, 1000)
+        }, 300)
 
     }).fail(function(data){
         alert('‼️ Failure connecting to airtable for cardlist')
@@ -95,6 +102,7 @@ var getCardListFromAirtable = function() {
 var getDeckListsFromAirtable = function() {
 
     var deckListDom = $("#deck-selection").find("ul")
+    deckListDom.empty();
 
     // Get master cardlist
     $.ajax({
@@ -144,7 +152,7 @@ var getDeckListsFromAirtable = function() {
                 })
             })
             $("#deck-selection").show()
-        }, 1000)
+        }, 500)
         
     }).fail(function(data){
         alert('‼️ Failure connecting to airtable for decklist')
@@ -171,7 +179,7 @@ var getDeckListsFromAirtable = function() {
 var buildDeck = function(player) {
     console.log('Building deck for ', player)
 
-    firebase.database().ref('/players').child(window.player).once("value", function(snap){
+    firebase.database().ref('/players').child(player).once("value", function(snap){
         var deckname = snap.val().deck;
         var deckRef = firebase.database().ref('/decks/' + player);
         var shuffledDeck = shuffle(window.decks[deckname]);

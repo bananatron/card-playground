@@ -129,6 +129,12 @@ button:hover {
 .card-front.is-ooze {
   background-color: #eafcf6;
 }
+.card-front.is-jelly {
+  background-color: #d4fcee;
+}
+.card-front.is-dungeon {
+  background-color: lightsalmon;
+}
 
 
 
@@ -206,6 +212,10 @@ button:hover {
 #game-actions button:hover {
   border: 0;
   background-color: red;
+}
+#game-actions button:disabled {
+  pointer-events: none;
+  opacity: 0.4;
 }
 
 .play-area.is-you {

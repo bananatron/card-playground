@@ -105,6 +105,9 @@ var startGame = function() {
     if (card_data["Type"] == "Ooze") {
       $card.find('.card-front').addClass('is-ooze')
     }
+    if (card_data["Type"] == "Jelly") {
+      $card.find('.card-front').addClass('is-jelly')
+    }
     if (card_data['Type'] == "Augmentation") {
       $card.find('.card-front').addClass('is-augmentation')
     }
