@@ -135,6 +135,7 @@ var getDeckListsFromAirtable = function() {
         });
         setTimeout(function() {
             console.log("Revealing deck chooser");
+            if (player == "spectator") return;
 
             // Set handlers
             $("#deck-selection li").on("click", function(event) {

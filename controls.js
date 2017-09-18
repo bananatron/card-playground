@@ -38,9 +38,15 @@ $(".player-select").on("click", function(event) {
   $("#play-area").show();
   $("#player-selection").hide();
   $(".card").show();
-  $("#game-actions").show();
   startGame(); // Start the rest of the listeners
-  
+
+  if (player == "spectator") { // Spectators see all
+    $(".play-area.player_1").addClass("is-you");
+    $(".play-area.player_2").addClass("is-you");
+    return;
+  }
+
+  $("#game-actions").show();
 });
 
 
@@ -48,7 +54,8 @@ $(".player-select").on("click", function(event) {
 var startGame = function() {
 
   // Flip cards
-  $('body').on('click', '.card', function(event){
+  $('body').on('click', '.card', function(event) {
+    if (window.player == 'spectator') return;
     var $card = $(event.currentTarget);
     var card_id = $card.attr('data-id');
 
@@ -65,6 +72,7 @@ var startGame = function() {
 
   // Draw new card
   $('[data-action="new-card"]').on('click', function(event) {
+    if (window.player == 'spectator') return;
     console.log("New card drawn")
     var player = $(event.currentTarget).attr('data-player');
     var playerTop = $('.' + player).css('top');
@@ -89,6 +97,7 @@ var startGame = function() {
         })
       }
     });
+
     $card.css({left: card_data.left, top: card_data.top});
     if (card_data.facedown === true){
       $card.addClass('is-facedown');
@@ -152,6 +161,7 @@ var startGame = function() {
 
   // Global game actions (like reset)
   $("#reset-game").on("click", function() {
+    if (window.player == 'spectator') return;
     var confirm = window.confirm("Are you sure you want to reset?");
     if (confirm) {
       resetGame();
