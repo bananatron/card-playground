@@ -86,8 +86,8 @@ button:hover {
   position: absolute !important;
   background-color: black;
   cursor: move;
-  height: 120px;
-  width: 100px;
+  height: 140px;
+  width: 120px;
   border-radius: 3px;
   z-index: 1;
   font-size: 12px;
@@ -243,9 +243,12 @@ button:hover {
   opacity: 0;
 }
 .grid {
-  background:url('assets/grid-4.png');
+  background:url('assets/grid-3.png');
   width: 1024px;
   height: 900px;
+}
+.grid.is-4 {
+  background:url('assets/grid-4.png');
 }
 
 button {
