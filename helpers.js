@@ -78,8 +78,8 @@ var resetGame = function() {
 }
 
 var getCardListFromAirtable = function() {
-    // Puts all the cards w/ their airtable IDs in firebase so that decklists can pull from them
-    // decklists are simply a list of IDs (from the deck airtable tab thing)
+    // Puts all the cards w/ their airtable IDs in firebase so that decklists can 
+    // pull from them decklists are simply a list of IDs (from the deck airtable tab thing)
     $.ajax({
         url: "https://api.airtable.com/v0/appzXeslgG8oxXqRL/Card%20List",
         headers: {"Authorization": "Bearer keyhdUvEUU5IL7Aqs"}

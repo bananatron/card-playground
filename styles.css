@@ -273,3 +273,87 @@ button[data-player="player_2"]{
   right: 0;
   background-color: lightcyan;
 }
+
+
+
+.print-card-template {
+  display: none;
+}
+
+.print-card {
+  position: relative;
+  background-color: #e8e8e8;
+  width: 320px;
+  max-width: 320px;
+  height: 200px;
+  display: inline-table;
+  margin: 10px;
+  font-size: 12px;
+}
+
+.print-card.is-Ooze > .title {
+  background: repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03) 30px, #e8e8e8 30px, #e8e8e8 60px );
+}
+
+.print-card.is-Special > .title {
+  background: repeating-linear-gradient( 90deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03) 30px, #dadada 30px, #dadada 60px );
+}
+
+.print-card.is-Augmentation > .title {
+  background: repeating-linear-gradient( 120deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03) 30px, #dadada 30px, #dadada 60px );
+}
+
+.print-card > .title {
+  font-size: 1.4em;
+  font-weight: bold;
+  padding: 0.6em 1em;
+}
+
+.print-card > .art {
+  height: 100px;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.print-card > .description {
+  font-size: 1.2em;
+  padding: 0.4em 1em;
+  line-height: 1.4em;
+  max-height: 80px;
+  width: 95%;
+}
+
+.print-card > .cost {
+  display: none;
+  position: absolute;
+  top: 0; right: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 1.6em;
+  border-radius: 100%;
+  margin: 0.3em;
+}
+
+.print-card .is-visible {
+  display: block !important;
+}
+
+.print-card > .mojo {
+  display: none;
+  position: absolute;
+  bottom: 0; right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 1.5em;
+  border-radius: 100%;
+  margin: 6px;
+  color: white;
+}
